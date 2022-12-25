@@ -12,15 +12,20 @@
 void LCD_Init_4Bit(void){
 
 	LCD_Send_4Bit(LCD_SOFT_RST, 0);
+	HAL_Delay(5);
 	LCD_Send_4Bit(LCD_SOFT_RST, 0);
+	HAL_Delay(5);
 	LCD_Send_4Bit(LCD_SOFT_RST, 0);
+	HAL_Delay(5);
 	LCD_Send_4Bit(LCD_4BIT_MODE, 0);
+	HAL_Delay(10);
 
 	LCD_Command(LCD_CONFIG);
 	LCD_Command(LCD_DISP_CMD|LCD_DISP_OFF);
-	LCD_Command(LCD_DISP_CMD|LCD_DISP_CLR);
-	LCD_Command(LCD_DISP_CMD|LCD_DISP_ON);
+	LCD_Command(LCD_DISP_CLR);
 	LCD_Command(LCD_ENTRYMODE);
+	LCD_Command(0x0C);
+
 
 }
 
